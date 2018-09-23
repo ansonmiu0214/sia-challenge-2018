@@ -13,4 +13,5 @@
 3. Run `source venv/bin/activate` to activate the virtual environment. Your shell name will now be prefixed with `(venv)`.
 4. Run `pip install -r requirements.txt` to install the dependencies listed in `requirements.txt`.
 
+To run the Python script, execute `python main.py`.
 To exit the virtual environment, run `deactivate`.
