@@ -1,15 +1,18 @@
 const rp = require('request-promise')
 
+const MEAL_API_ENDPOINT = 'https://apigw.singaporeair.com/appchallenge/api/meal/upliftplan'
+const MEAL_API_HEADERS = {
+  'Content-Type': 'application/json',
+  'apikey': 'aghk73f4x5haxeby7z24d2rc'
+}
+
 function getMeal(req, res, next) {
   const { date, flightCode}  = req.params
 
   const postOptions = {
-    uri: 'https://apigw.singaporeair.com/appchallenge/api/meal/upliftplan',
+    uri: MEAL_API_ENDPOINT,
     method: 'POST' ,
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': 'aghk73f4x5haxeby7z24d2rc'
-    },
+    headers: MEAL_API_HEADERS,
     body: {
       flightNo: flightCode,
       flightDate: date
