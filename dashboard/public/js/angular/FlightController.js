@@ -45,22 +45,33 @@ app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams',
             $scope.wastage[meal.mealCode] = {}
           }
 
-          console.log($scope.wastage)
-
           wastePromise.then(data => {
             for (let entry of data) {
               const { mealCode, wastage } = entry
 
               for (let waste of wastage) {
                 const { foodName, percentage } = waste
-                console.log($scope.wastage)
-                console.log(mealCode)
 
                 if (!(foodName in $scope.wastage[mealCode])) {
                   $scope.wastage[mealCode][foodName] = percentage
                 } else {
                   $scope.wastage[mealCode][foodName] += percentage
                 }
+              }
+            }
+
+            // normalise sums
+            for (let meal of $scope.meals) {
+              const { mealCode } = meal
+
+              let total = 0
+              for (let foodName in $scope.wastage[mealCode]) {
+                total += $scope.wastage[mealCode][foodName]
+              }
+
+              console.log(total)
+              for (let foodName in $scope.wastage[mealCode]) {
+                $scope.wastage[mealCode][foodName] = Math.round($scope.wastage[mealCode][foodName] * 100 / total)
               }
             }
 
@@ -93,6 +104,7 @@ app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams',
     
     const ctx = document.querySelector('#myPieChart')
     const wastageObject = $scope.wastage[mealCode]
+    console.log(wastageObject)
     
     $scope.chartLabels = Object.keys(wastageObject)
     $scope.chartData = Object.values(wastageObject)
