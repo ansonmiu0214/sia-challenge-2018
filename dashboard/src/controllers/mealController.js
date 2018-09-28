@@ -7,9 +7,9 @@ const MEAL_API_HEADERS = {
 }
 
 function getMeal(req, res, next) {
-  const { date, flightCode}  = req.params
+  const { date, flightCode, mealCode }  = req.params
 
-  if (date == '2018-07-21' && flightCode == 'SQ888') {
+  if (flightCode == 'SQ888') {
     const mockData = generateMockMeal(flightCode, date)
     return res.status(200).json(mockData)
   }
