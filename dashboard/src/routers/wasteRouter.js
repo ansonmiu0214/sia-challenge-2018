@@ -1,9 +1,6 @@
 const router = require('express').Router()
+const wasteController = require('./../controllers/wasteController')
 
-router.get('/date/:date/flight/:flightCode', (req, res, next) => {
-  const { date, flightCode}  = req.params
-
-  res.send(`Waste data for flight ${flightCode} on ${date}`)
-})
+router.get('/date/:date/flight/:flightCode', wasteController.getWastage)
 
 module.exports = router
