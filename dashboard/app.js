@@ -24,8 +24,8 @@ app.get('/api/flight/:flightCode', (req, res, next) => {
   // Handle special case for "DeepLens" flight
   if (flightCode == 'SQ888') 
     return res.status(200).json({
-      from: 'HKG',
-      to: 'TPE'
+      from: 'SIN',
+      to: 'KUL'
     })
 
 

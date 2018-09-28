@@ -45,12 +45,16 @@ app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams',
             $scope.wastage[meal.mealCode] = {}
           }
 
+          console.log($scope.wastage)
+
           wastePromise.then(data => {
             for (let entry of data) {
               const { mealCode, wastage } = entry
 
               for (let waste of wastage) {
                 const { foodName, percentage } = waste
+                console.log($scope.wastage)
+                console.log(mealCode)
 
                 if (!(foodName in $scope.wastage[mealCode])) {
                   $scope.wastage[mealCode][foodName] = percentage

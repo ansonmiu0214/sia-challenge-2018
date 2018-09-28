@@ -12,7 +12,7 @@ function getWastage(req, res, next) {
   console.log(targetDir)
 
   // Querying this "special flight" uses data generated from the mock DeepLens script instead
-  if (date == '2018-07-21' && flightCode == 'SQ888') {
+  if (flightCode == 'SQ888') {
     targetDir = path.join(DEEPLENS_DATA_DIR, date, flightCode)
   }
 

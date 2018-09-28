@@ -17,7 +17,8 @@
 <div ng-if="loaded && !hasError" id="content-wrapper">
   <!-- Breadcrumbs-->
   <ol class="breadcrumb" style="background-color: transparent;">
-    <div class="breadcrumb-item active" style="font-size:20px; color:#4F4F4F;padding-top:20px;">> 
+    <div class="breadcrumb-item active" style="font-size:20px; color:#4F4F4F;padding-top:20px;">
+      <i class="fas fa-chevron-right"></i> 
       {{currentFlight}}
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{from}} <i class="fas fa-fighter-jet" style="color:#F5A623;"></i> {{to}}
     </div>
@@ -75,7 +76,9 @@
 
   <div ng-if="mealSelected != null">
     <ol class="breadcrumb" style="background-color: transparent;">
-      <div class="breadcrumb-item active" style="font-size:20px; color:#4F4F4F;padding-top:20px;">> {{mealSelected.mealCode}} - {{mealSelected.meal}}</div>
+      <div class="breadcrumb-item active" style="font-size:20px; color:#4F4F4F;padding-top:20px;">
+          <i class="fas fa-chevron-right"></i>  {{mealSelected.mealCode}} - {{mealSelected.meal}}
+      </div>
     </ol>
     
     <div class="row">
@@ -84,7 +87,7 @@
         <div class="card ">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
-            Area Chart Example</div>
+            Relative Wastage</div>
           <div class="card-body">
             <canvas id="myPieChart" width="100%" height="30"></canvas>
           </div>
