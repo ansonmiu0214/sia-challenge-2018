@@ -1,0 +1,31 @@
+{
+    "timestamp": "2018-09-28 18:50:11.531540",
+    "mealCode": "S001",
+    "wastage": [
+        {
+            "confidence": 0.281994491815567,
+            "percentage": 0.2857142857142857,
+            "foodName": "mixing_bowl"
+        },
+        {
+            "confidence": 0.09337519854307175,
+            "percentage": 0.38095238095238093,
+            "foodName": "Granny_Smith"
+        },
+        {
+            "confidence": 0.07864291965961456,
+            "percentage": 0.11904761904761904,
+            "foodName": "orange"
+        },
+        {
+            "confidence": 0.0728834867477417,
+            "percentage": 0.16666666666666666,
+            "foodName": "banana"
+        },
+        {
+            "confidence": 0.06997181475162506,
+            "percentage": 0.047619047619047616,
+            "foodName": "lemon"
+        }
+    ]
+}

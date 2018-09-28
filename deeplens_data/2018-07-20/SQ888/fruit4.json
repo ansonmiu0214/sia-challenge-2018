@@ -1,0 +1,31 @@
+{
+    "timestamp": "2018-09-28 18:50:12.051622",
+    "mealCode": "S001",
+    "wastage": [
+        {
+            "confidence": 0.9504282474517822,
+            "percentage": 0.13636363636363635,
+            "foodName": "orange"
+        },
+        {
+            "confidence": 0.04935901239514351,
+            "percentage": 0.15151515151515152,
+            "foodName": "lemon"
+        },
+        {
+            "confidence": 0.00010125005792360753,
+            "percentage": 0.15151515151515152,
+            "foodName": "banana"
+        },
+        {
+            "confidence": 2.428562584100291e-05,
+            "percentage": 0.2727272727272727,
+            "foodName": "strainer"
+        },
+        {
+            "confidence": 1.800901554815937e-05,
+            "percentage": 0.2878787878787879,
+            "foodName": "pineapple"
+        }
+    ]
+}

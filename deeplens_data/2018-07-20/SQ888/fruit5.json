@@ -1,0 +1,31 @@
+{
+    "timestamp": "2018-09-28 18:50:11.805262",
+    "mealCode": "S001",
+    "wastage": [
+        {
+            "confidence": 0.9515463709831238,
+            "percentage": 0.3333333333333333,
+            "foodName": "strawberry"
+        },
+        {
+            "confidence": 0.007639518938958645,
+            "percentage": 0.0392156862745098,
+            "foodName": "corn"
+        },
+        {
+            "confidence": 0.0040236483328044415,
+            "percentage": 0.29411764705882354,
+            "foodName": "ice_cream"
+        },
+        {
+            "confidence": 0.00337766925804317,
+            "percentage": 0.13725490196078433,
+            "foodName": "tray"
+        },
+        {
+            "confidence": 0.0033502369187772274,
+            "percentage": 0.19607843137254902,
+            "foodName": "hermit_crab"
+        }
+    ]
+}

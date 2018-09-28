@@ -1,0 +1,31 @@
+{
+    "timestamp": "2018-09-28 18:50:11.305500",
+    "mealCode": "S001",
+    "wastage": [
+        {
+            "confidence": 0.33517906069755554,
+            "percentage": 0.22,
+            "foodName": "banana"
+        },
+        {
+            "confidence": 0.2764318883419037,
+            "percentage": 0.22,
+            "foodName": "strawberry"
+        },
+        {
+            "confidence": 0.06656826287508011,
+            "percentage": 0.4,
+            "foodName": "pineapple"
+        },
+        {
+            "confidence": 0.053269341588020325,
+            "percentage": 0.04,
+            "foodName": "Granny_Smith"
+        },
+        {
+            "confidence": 0.051628198474645615,
+            "percentage": 0.12,
+            "foodName": "orange"
+        }
+    ]
+}

@@ -17,7 +17,7 @@ from random import randint
 import aws_lambda
 
 RESNET_DIMENSIONS = (224, 224)
-MOCK_FLIGHT_DATE = "2018-07-21"
+MOCK_FLIGHT_DATE = "2018-07-20"
 MOCK_FLIGHT_CODE = "SQ888"
 
 SOURCE_IMAGE_DIR = "../source_images"
@@ -69,7 +69,7 @@ def parseImage(path):
   payload = {
     'wastage': data,
     'totalWastage': sum(rect_areas),
-    'mealCode': 'E001'
+    'mealCode': 'S001'
   }
 
   # delegate to lambda function for processing and exporting payload

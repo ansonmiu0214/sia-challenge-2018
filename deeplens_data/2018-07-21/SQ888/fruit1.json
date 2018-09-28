@@ -1,0 +1,31 @@
+{
+    "timestamp": "2018-09-28 18:40:29.592916",
+    "mealCode": "E001",
+    "wastage": [
+        {
+            "confidence": 0.23697564005851746,
+            "percentage": 0.06,
+            "foodName": "banana"
+        },
+        {
+            "confidence": 0.22630949318408966,
+            "percentage": 0.28,
+            "foodName": "pineapple"
+        },
+        {
+            "confidence": 0.21354439854621887,
+            "percentage": 0.18,
+            "foodName": "strawberry"
+        },
+        {
+            "confidence": 0.14784227311611176,
+            "percentage": 0.26,
+            "foodName": "pomegranate"
+        },
+        {
+            "confidence": 0.08844692260026932,
+            "percentage": 0.22,
+            "foodName": "orange"
+        }
+    ]
+}
