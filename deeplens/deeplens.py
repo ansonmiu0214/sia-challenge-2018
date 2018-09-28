@@ -44,8 +44,10 @@ def prepare_image(image, target):
 def parseImage(path):
   image = Image.open(path)
 
+  # prepare the image for inference
   image = prepare_image(image, target=RESNET_DIMENSIONS)
 
+  # run inference and decode results
   predictions = model.predict(image)
   results = imagenet_utils.decode_predictions(predictions)
 
@@ -62,33 +64,24 @@ def parseImage(path):
     for idx, (_, classifier, confidence) in enumerate(results[0])
   ]
 
-  # timestamp = str(datetime.now())
-  # json_payload = { 
-  #   "timestamp": timestamp,
-  #   "flightCode": MOCK_FLIGHT_CODE,
-  #   "payload": data,
-  #   "totalArea": sum(rect_areas)
-  # }
-
+  # format payload for processing by lambda
+  # need data on total wastage in order to compute relative proportions
   payload = {
     'wastage': data,
     'totalWastage': sum(rect_areas),
     'mealCode': 'E001'
   }
 
+  # delegate to lambda function for processing and exporting payload
   basename, _ = os.path.basename(path).split('.')
-
   aws_lambda.process_deeplens_payload(payload, MOCK_FLIGHT_DATE, MOCK_FLIGHT_CODE, basename)
 
-  # json_filename = "{}/{}.json".format(DEEPLENS_DATA_DIR, basename)
-  
-  # with open(json_filename, 'w') as json_file:
-  #   json.dump(json_payload, json_file, indent=4)
-  
-  print("Exported results for {}".format(basename))
+  print("Exported results for {}".format(basename))  
 
 
 if __name__ == "__main__":
   load_model()
   for filename in glob("{}/*.jpeg".format(SOURCE_IMAGE_DIR)):
     parseImage(filename)
+
+  print("Completed.")
