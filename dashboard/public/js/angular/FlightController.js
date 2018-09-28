@@ -1,6 +1,7 @@
 const MOCK_DATE = '2018-07-20'
 
 app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams', '$rootScope', ($scope, $http, $state, $stateParams, $rootScope) => {
+  console.log('flight controller loaded!')
   const { flightCode } = $stateParams
   $scope.currentFlight = flightCode
   
@@ -117,14 +118,15 @@ app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams',
           datasets: [
             {
               data: $scope.chartData, // percentages
-              backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'] //
+              // backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'] //
+              backgroundColor: ['#f7dc9e', '#f9d47c', '#FFA500', '#FF8C00']
             }
           ]
         },
         options: {
           title: {
             display: true,
-            text: 'What wasted the most?'
+            text: 'What was wasted the most?'
           }
         }
       })

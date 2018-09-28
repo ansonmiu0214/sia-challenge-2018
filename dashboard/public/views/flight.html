@@ -14,7 +14,10 @@
   </div>
 </div>
 
+
 <div ng-if="loaded && !hasError" id="content-wrapper">
+
+  
   <!-- Breadcrumbs-->
   <ol class="breadcrumb" style="background-color: transparent;">
     <div class="breadcrumb-item active" style="font-size:20px; color:#4F4F4F;padding-top:20px;">
@@ -28,9 +31,12 @@
   <div class="row">
     <div class="col-xl-3 col-sm-6 mb-3" ng-repeat="meal in meals">
       <div class="card o-hidden h-100" style="background-color:#fff ;border:none; box-shadow: 3px 3px 11px 0px rgba(222,222,222,1);" ng-click="selectMeal(meal)">
+
         <div class="card-body">
           <div class="card-body-icon" style=" opacity: 100;">
-            <img src="img/fish.png">
+           <div ng-if="meal.meal.indexOf('Fish') !== -1" > <img src="img/fish.png"> </div>
+           <div ng-if= "meal.meal.indexOf('Beef') !== -1""><img src="img/steak.png"> </div>
+           <img src="img/broccoli.png">
           </div>
           <h3 class="mr-5">{{meal.mealCode}}</h3>
           <p>{{meal.meal}}</p>

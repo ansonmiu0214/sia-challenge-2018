@@ -1,3 +1,4 @@
+
 app.controller('NavController', ['$scope', '$http', '$state', '$rootScope', ($scope, $http, $state, $rootScope) => {
   console.log('NavController loaded!')
 
@@ -7,4 +8,5 @@ app.controller('NavController', ['$scope', '$http', '$state', '$rootScope', ($sc
     if (flight === null) $state.go('overview')
     else $state.go('flight', { flightCode: flight })
   }
+
 }])
