@@ -19,12 +19,9 @@ function getWastage(req, res, next) {
   if (!fs.existsSync(targetDir)) return next(new Error(`No wastage data recorded for flight ${flightCode} on ${date}`))
 
   // Read JSONs and return result
-  fsReadJSON(targetDir).then(objects => {
-    console.log(objects)
-    res.status(200).json(objects)
-  }).catch(error => next(error))
-
-  // res.send(`Waste data for flight ${flightCode} on ${date}`)
+  fsReadJSON(targetDir)
+    .then(objects => res.status(200).json(objects))
+    .catch(error => next(error))
 }
 
 function fsReadJSON(targetDir) {
