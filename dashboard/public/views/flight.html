@@ -1,12 +1,12 @@
 <span ng-init="init()"></span>
 
-<div ng-if="!loaded">
+<div ng-if="!loaded" style="padding-top: 20px;">
   <div class="alert alert-info">
     <h1>Loading...</h1>
   </div>
 </div>
 
-<div ng-if="hasError">
+<div ng-if="hasError" style="padding-top: 20px;">
   <div class="alert alert-danger">
     <h1>Error</h1>
     <hr>
@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<div ng-if="loaded" id="content-wrapper">
+<div ng-if="loaded && !hasError" id="content-wrapper">
   <!-- Breadcrumbs-->
   <ol class="breadcrumb" style="background-color: transparent;">
     <div class="breadcrumb-item active" style="font-size:20px; color:#4F4F4F;padding-top:20px;">> 
@@ -26,9 +26,9 @@
   <!-- Icon Cards-->
   <div class="row">
     <div class="col-xl-3 col-sm-6 mb-3" ng-repeat="meal in meals">
-      <div class="card  o-hidden h-100" style="background-color:#fff ;border:none; box-shadow: 3px 3px 11px 0px rgba(222,222,222,1);">
+      <div class="card o-hidden h-100" style="background-color:#fff ;border:none; box-shadow: 3px 3px 11px 0px rgba(222,222,222,1);" ng-click="selectMeal(meal)">
         <div class="card-body">
-          <div class="card-body-icon" style="    opacity: 100;">
+          <div class="card-body-icon" style=" opacity: 100;">
             <img src="img/fish.png">
           </div>
           <h3 class="mr-5">{{meal.mealCode}}</h3>
@@ -67,41 +67,49 @@
     </div> -->
   </div>
 
+  <div ng-if="mealSelected == null" class="alert alert-warning">
+    <h1>No meal selected</h1>
+    <hr>
+    <p>Please select a meal above.</p>
+  </div>
 
-  <ol class="breadcrumb" style="background-color: transparent;">
-    <!-- <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
-          </li> -->
-    <div class="breadcrumb-item active" style="font-size:20px; color:#4F4F4F;padding-top:20px;">> Set B - Steak</div>
-  </ol>
-
-  <div class="row">
-    <!-- Area Chart Example-->
-    <div class="col-md-8">
-      <div class="card ">
-        <div class="card-header">
-          <i class="fas fa-chart-area"></i>
-          Area Chart Example</div>
-        <div class="card-body">
-          <canvas id="myAreaChart" width="100%" height="30"></canvas>
+  <div ng-if="mealSelected != null">
+    <ol class="breadcrumb" style="background-color: transparent;">
+      <div class="breadcrumb-item active" style="font-size:20px; color:#4F4F4F;padding-top:20px;">> {{mealSelected.mealCode}} - {{mealSelected.meal}}</div>
+    </ol>
+    
+    <div class="row">
+      <!-- Area Chart Example-->
+      <div class="col-md-8">
+        <div class="card ">
+          <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Area Chart Example</div>
+          <div class="card-body">
+            <canvas id="myPieChart" width="100%" height="30"></canvas>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-    </div>
-
-    <!-- DataTables Example -->
-    <div class="col-md-4">
-      <div class="card ">
-        <div class="card-header">
-          <i class="fas fa-table"></i>
-          Data Table Example</div>
-        <div class="card-body">
-
+    
+      <!-- DataTables Example -->
+      <div class="col-md-4">
+        <div class="card ">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Data Table Example</div>
+          <div class="card-body">
+    
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
     </div>
   </div>
-</div>
+
+  
+
+
+  
 </div>
 <!-- /.content-wrapper -->

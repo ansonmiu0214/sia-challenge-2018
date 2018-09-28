@@ -42,18 +42,3 @@ app.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterP
   $urlRouterProvider.otherwise('/')
 
 }])
-
-// app.controller('MainController', ['$scope', '$http', '$state', '$rootScope', ($scope, $http, $state, $rootScope) => {
-//   console.log('MainController loaded!')
-
-  
-//   $scope.flights = ['SQ336', 'SQ888']
-//   $scope.showFlight = function(flight) {
-//     if (flight === null) {
-//       // Changing to overview
-//       //
-//       return
-//     }
-//   }
-
-// }])
