@@ -10,7 +10,15 @@ app.use(logger('dev'))
 app.use(bodyParser.json({ limit: '500kb' }))
 app.use(bodyParser.urlencoded({ extended: true }))
 
-// Routes
+// API routes
+app.get('/api/flight/:flightCode', (req, res, next) => {
+  const flightCode = req.params.flightCode
+  res.send(`Request to get food data for flight code ${flightCode}`)
+})
+
+app.get('/_health', (req, res, next) => res.send('OK'))
+
+// Static routes
 app.use('/index', express.static(path.join(__dirname, 'public')))
 app.all('*', (req, res) => res.redirect('./index'))
 
