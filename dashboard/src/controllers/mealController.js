@@ -9,6 +9,11 @@ const MEAL_API_HEADERS = {
 function getMeal(req, res, next) {
   const { date, flightCode}  = req.params
 
+  if (date == '2018-07-21' && flightCode == 'SQ888') {
+    const mockData = generateMockMeal(flightCode, date)
+    return res.status(200).json(mockData)
+  }
+
   const postOptions = {
     uri: MEAL_API_ENDPOINT,
     method: 'POST' ,
@@ -23,6 +28,30 @@ function getMeal(req, res, next) {
   rp(postOptions)
     .then(parsedBody => res.status(200).json(parsedBody.response))
     .catch(_ => next(new Error(`Meals for flight ${flightCode} on ${date} not found.`)))
+}
+
+function generateMockMeal(flightNo, flightDate) {
+  return {
+    flightNo: flightNo,
+    flightDate, flightDate,
+    sector: 'HKG/TPE',
+    mealUpliftPlan: [
+      {
+        bookingClass: 'Economy',
+        containerUpliftInformation: [
+          {
+            position: 'Cart 1',
+            mealService: 'Snack',
+            mealCode: 'S001',
+            meal: 'Fruit Platter',
+            quantity: '100',
+            perPackWeight: '500g',
+            packingColour: 'Blue'
+          }
+        ]
+      }
+    ]
+  }
 }
 
 module.exports = {
