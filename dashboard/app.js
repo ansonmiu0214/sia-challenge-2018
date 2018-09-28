@@ -3,6 +3,9 @@ const bodyParser = require('body-parser')
 const logger = require('morgan')
 const path = require('path')
 
+const mealRouter = require('./src/routers/mealRouter')
+const wasteRouter = require('./src/routers/wasteRouter')
+
 const app = express()
 
 // Middleware
@@ -11,6 +14,9 @@ app.use(bodyParser.json({ limit: '500kb' }))
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // API routes
+app.use('/api/meal', mealRouter)
+app.use('/api/waste', wasteRouter)
+
 app.get('/api/flight/:flightCode', (req, res, next) => {
   const flightCode = req.params.flightCode
   res.send(`Request to get food data for flight code ${flightCode}`)
