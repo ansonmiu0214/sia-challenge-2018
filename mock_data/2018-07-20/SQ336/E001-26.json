@@ -1,0 +1,26 @@
+{
+    "timestamp": "2018-09-28 15:24:10.907246",
+    "mealCode": "E001",
+    "wastage": [
+        {
+            "foodName": "fish",
+            "confidence": 0.75,
+            "percentage": 0.3125
+        },
+        {
+            "foodName": "potatoes",
+            "confidence": 0.88,
+            "percentage": 0.46875
+        },
+        {
+            "foodName": "green_peas",
+            "confidence": 0.99,
+            "percentage": 0.0625
+        },
+        {
+            "foodName": "carrots",
+            "confidence": 0.93,
+            "percentage": 0.15625
+        }
+    ]
+}

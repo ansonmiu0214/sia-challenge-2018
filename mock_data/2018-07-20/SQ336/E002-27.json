@@ -1,0 +1,21 @@
+{
+    "timestamp": "2018-09-28 15:24:10.925197",
+    "mealCode": "E002",
+    "wastage": [
+        {
+            "foodName": "beef",
+            "confidence": 0.63,
+            "percentage": 0.0625
+        },
+        {
+            "foodName": "noodles",
+            "confidence": 0.88,
+            "percentage": 0.53125
+        },
+        {
+            "foodName": "onion",
+            "confidence": 0.73,
+            "percentage": 0.40625
+        }
+    ]
+}
