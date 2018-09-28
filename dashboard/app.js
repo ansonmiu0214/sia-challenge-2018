@@ -26,6 +26,7 @@ app.get('/_health', (req, res, next) => res.send('OK'))
 
 // Static routes
 app.use('/index', express.static(path.join(__dirname, 'public')))
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 // Error handler
 app.use((req, res, next) => {
