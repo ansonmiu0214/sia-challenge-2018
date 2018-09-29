@@ -42,3 +42,10 @@ app.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterP
   $urlRouterProvider.otherwise('/')
 
 }])
+
+// Datepicker defefault
+$(function() {
+  const defaultDate = new Date(2018, 7-1, 20)
+  $("#datepicker").datepicker({ dateFormat: 'dd-M-yy', minDate: defaultDate, maxDate: defaultDate });
+  $("#datepicker").datepicker('setDate', defaultDate);
+})
