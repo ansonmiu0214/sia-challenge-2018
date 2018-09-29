@@ -1,30 +1,30 @@
 {
-    "timestamp": "2018-09-28 18:50:11.028249",
+    "timestamp": "2018-09-29 21:44:13.855395",
     "mealCode": "S001",
     "wastage": [
         {
             "confidence": 0.23697564005851746,
-            "percentage": 0.05660377358490566,
+            "percentage": 0.08163265306122448,
             "foodName": "banana"
         },
         {
             "confidence": 0.22630949318408966,
-            "percentage": 0.32075471698113206,
+            "percentage": 0.40816326530612246,
             "foodName": "pineapple"
         },
         {
             "confidence": 0.21354439854621887,
-            "percentage": 0.07547169811320754,
+            "percentage": 0.14285714285714285,
             "foodName": "strawberry"
         },
         {
             "confidence": 0.14784227311611176,
-            "percentage": 0.2830188679245283,
+            "percentage": 0.2857142857142857,
             "foodName": "pomegranate"
         },
         {
             "confidence": 0.08844692260026932,
-            "percentage": 0.2641509433962264,
+            "percentage": 0.08163265306122448,
             "foodName": "orange"
         }
     ]
