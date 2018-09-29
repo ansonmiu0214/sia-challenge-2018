@@ -46,7 +46,7 @@ app.controller('OverviewController', ['$scope', '$http', '$state', '$stateParams
             yAxes: [{
               ticks: {
                 min: 0,
-                max: 40000,
+                max: 4000,
                 maxTicksLimit: 5
               },
               gridLines: {
@@ -61,13 +61,85 @@ app.controller('OverviewController', ['$scope', '$http', '$state', '$stateParams
       })
     }
 
-    const promises = [byDayPromise]
-    const handlers = [byDayHandler]
+    const byMonthPromise = new Promise((resolve, reject) => {
+      $http.get('./api/waste/months', { responseType: 'json' })
+        .then(response => resolve(response.data))
+        .catch(error => reject(error))
+    })
+
+    const byMonthHandler = function(data) {
+      const { dates, values } = data
+
+      const ctx = document.querySelector('#myBarChart')
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: dates,
+          datasets: [{
+            label: "Revenue",
+            backgroundColor: "#FFA500",
+            borderColor: "#FFA500",
+            data: values
+          }],
+        },
+        options: {
+          scales: {
+            xAxes: [{
+              time: {
+                unit: 'month'
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                maxTicksLimit: 6
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                min: 0,
+                max: 50000,
+                maxTicksLimit: 6
+              },
+              gridLines: {
+                display: true
+              }
+            }],
+          },
+          legend: {
+            display: false
+          }
+        }
+      })
+    }
+
+    const byFoodPromise = new Promise((resolve, reject) => {
+      $http.get('./api/waste/food', { responseType: 'json' })
+        .then(response => resolve(response.data))
+        .catch(error => reject(error))
+    })
+
+    const byFoodHandler = function(data) {
+      const { foodNames, values } = data
+      const ctx = document.querySelector('#myPieChart')
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: foodNames,
+          datasets: [{
+            data: values,
+            backgroundColor: ['#f7dc9e', '#f9d47c', '#FFA500', '#FF8C00'],
+          }],
+        },
+      })
+    }
+
+    const promises = [byDayPromise, byMonthPromise, byFoodPromise]
+    const handlers = [byDayHandler, byMonthHandler, byFoodHandler]
 
     Promise.all(promises)
       .then(results => results.map((result, idx) => setTimeout(() => handlers[idx](result), 500)))
       .catch(errors => console.error(errors))
-
   }
 
 }])

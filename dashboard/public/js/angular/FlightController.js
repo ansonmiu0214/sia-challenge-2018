@@ -1,7 +1,6 @@
 const MOCK_DATE = '2018-07-20'
 
 app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams', '$rootScope', ($scope, $http, $state, $stateParams, $rootScope) => {
-  console.log('flight controller loaded!')
   const { flightCode } = $stateParams
   $scope.currentFlight = flightCode
   
@@ -108,7 +107,12 @@ app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams',
     $scope.chartLabels = Object.keys(wastageObject)
     $scope.chartData = Object.values(wastageObject)
 
-    if ($scope.chartLabels.length == 0) alert("TODO No meal data - to handle!!")
+    $scope.$apply(() => $scope.hasMealData = $scope.chartLabels.length > 0)
+  
+    if (!$scope.hasMealData) {
+      $scope.chart = undefined
+      return
+    }
 
     if ($scope.chart === undefined) { 
       $scope.chart = new Chart(ctx, {
@@ -139,6 +143,7 @@ app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams',
 
   $scope.selectMeal = function(meal) {
     $scope.mealSelected = meal
-    setTimeout(() => $scope.updateChart(meal.mealCode), 500)
+    $scope.hasMealData = true
+    setTimeout(() => $scope.updateChart(meal.mealCode), 300)
   }
 }])
