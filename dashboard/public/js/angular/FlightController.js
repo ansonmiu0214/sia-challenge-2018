@@ -70,7 +70,6 @@ app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams',
                 total += $scope.wastage[mealCode][foodName]
               }
 
-              console.log(total)
               for (let foodName in $scope.wastage[mealCode]) {
                 $scope.wastage[mealCode][foodName] = Math.round($scope.wastage[mealCode][foodName] * 100 / total)
               }
@@ -105,10 +104,11 @@ app.controller('FlightController', ['$scope', '$http', '$state', '$stateParams',
     
     const ctx = document.querySelector('#myPieChart')
     const wastageObject = $scope.wastage[mealCode]
-    console.log(wastageObject)
-    
+
     $scope.chartLabels = Object.keys(wastageObject)
     $scope.chartData = Object.values(wastageObject)
+
+    if ($scope.chartLabels.length == 0) alert("TODO No meal data - to handle!!")
 
     if ($scope.chart === undefined) { 
       $scope.chart = new Chart(ctx, {
