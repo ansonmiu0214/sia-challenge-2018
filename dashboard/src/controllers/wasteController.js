@@ -31,9 +31,9 @@ function getWastageByDay(req, res, next) {
   ]
 
   const values = [
-    10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 
-    32651, 31984, 38451, 29102, 19283, 21939, 18303, 17201, 14032
-  ]
+    1000, 3016, 2626, 1839, 1828, 2868, 3127, 3325, 2584, 2415, 
+    3265, 3198, 3845, 2910, 1928, 2193, 1830, 1720, 1403
+ ]
 
   res.status(200).json({
     dates: dates, 
@@ -42,11 +42,33 @@ function getWastageByDay(req, res, next) {
 }
 
 function getWastageByMonth(req, res, next) {
+  const dates = [
+    "January", "February", "March", "April", "May", "June"
+  ]
+  
+  const values = [
+    34215, 25312, 46251, 37841, 39821, 21498
+  ]
 
+  res.status(200).json({
+    dates: dates,
+    values: values
+  })
 }
 
 function getWastageByFood(req, res, next) {
-  
+  const foodNames = [
+    "E001", "E002", "TXL166", "S001"
+  ]
+
+  const values = [
+    1221, 1558, 1125, 632
+  ]
+
+  res.status(200).json({
+    foodNames: foodNames,
+    values: values
+  })
 }
 
 function fsReadJSON(targetDir) {

@@ -4,7 +4,7 @@ const wasteController = require('./../controllers/wasteController')
 router.get('/date/:date/flight/:flightCode' , wasteController.getWastage)
 router.get('/days'                          , wasteController.getWastageByDay)
 router.get('/months'                        , wasteController.getWastageByMonth)
-router.get('/byFood'                        , wasteController.getWastageByFood)
+router.get('/food'                          , wasteController.getWastageByFood)
 
 
 module.exports = router
