@@ -7,7 +7,7 @@ const MEAL_API_HEADERS = {
 }
 
 function getMeal(req, res, next) {
-  const { date, flightCode, mealCode }  = req.params
+  const { date, flightCode }  = req.params
 
   if (flightCode == 'SQ888') {
     const mockData = generateMockMeal(flightCode, date)
@@ -34,7 +34,7 @@ function generateMockMeal(flightNo, flightDate) {
   return {
     flightNo: flightNo,
     flightDate, flightDate,
-    sector: 'HKG/TPE',
+    sector: 'SIN/KUL',
     mealUpliftPlan: [
       {
         bookingClass: 'Economy',
