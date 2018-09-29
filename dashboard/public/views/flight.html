@@ -30,7 +30,7 @@
   <!-- Icon Cards-->
   <div class="row">
     <div class="col-xl-3 col-sm-6 mb-3" ng-repeat="meal in meals">
-      <div class="card o-hidden h-100" style="background-color:#fff ;border:none; box-shadow: 3px 3px 11px 0px rgba(222,222,222,1);" ng-click="selectMeal(meal)">
+      <div class="card o-hidden h-100 meal-card" style="background-color:#fff ;border:none; box-shadow: 3px 3px 11px 0px rgba(222,222,222,1);" ng-click="selectMeal(meal)" ng-class="{ active: mealSelected == meal } ">
 
         <div class="card-body">
           <div class="card-body-icon" style=" opacity: 100;">
@@ -74,7 +74,7 @@
     </div> -->
   </div>
 
-  <div ng-if="mealSelected == null" class="alert alert-warning">
+  <div ng-if="mealSelected == null" class="alert alert-warning" style="margin-top: 10px;">
     <h1>No meal selected</h1>
     <hr>
     <p>Please select a meal above.</p>

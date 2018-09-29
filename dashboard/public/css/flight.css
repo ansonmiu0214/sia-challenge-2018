@@ -1,0 +1,12 @@
+.meal-card {
+  transition: transform .5s ease-in-out;
+  margin: 10px;
+}
+
+.meal-card:hover {
+  transform: scale(1.1);
+}
+
+.meal-card.active {
+  border-bottom: 5px orange solid !important;
+}
