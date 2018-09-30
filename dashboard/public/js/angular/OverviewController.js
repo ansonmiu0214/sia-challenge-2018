@@ -76,7 +76,7 @@ app.controller('OverviewController', ['$scope', '$http', '$state', '$stateParams
         data: {
           labels: dates,
           datasets: [{
-            label: "Revenue",
+            label: "Wastage",
             backgroundColor: "#FFA500",
             borderColor: "#FFA500",
             data: values
