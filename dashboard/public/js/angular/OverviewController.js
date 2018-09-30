@@ -21,10 +21,10 @@ app.controller('OverviewController', ['$scope', '$http', '$state', '$stateParams
           datasets: [{
             label: "Wastage",
             lineTension: 0.3,
-            backgroundColor: "#551A8B",
-            borderColor: "rgba(2,117,216,1)",
+            backgroundColor: "#4B0082",
+            borderColor: "#800080",
             pointRadius: 5,
-            pointBackgroundColor: "rgba(2,117,216,1)",
+            pointBackgroundColor: "#800080",
             pointBorderColor: "rgba(255,255,255,0.8)",
             pointHoverRadius: 5,
             pointHoverBackgroundColor: "rgba(2,117,216,1)",
