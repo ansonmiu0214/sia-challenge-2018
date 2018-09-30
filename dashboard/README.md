@@ -5,23 +5,24 @@ This aims to simulate the serverless dashboard visualisation solution using a fu
 The purpose of the dashboard prototype is to illustrate this visualisation solution as well as to show how it integrates with the data collected from AWS DeepLens. 
 
 Date | Flight No. | Description
-----------------------------------
+--- | --- | ---
 2018-07-20 | SQ336 | Meal data for this flight is fetched __directly__ from the provided SIA `/meal/upliftplan` API, and a large amount of sample data is generated artifically for illustrative purposes.
-2018-07-21 | SQ888 | Food wastage data for this mock flight is fetched __directly__ from the machine learning inference results from the `deeplens` prototype.
+2018-07-20 | SQ888 | Food wastage data for this mock flight is fetched __directly__ from the machine learning inference results from the `deeplens` prototype.
 
 ## APIs
 These APIs are implemented using Express.js for the prototype, but in the actual implementation, will be replaced by AWS Lambda functions mappped via an API Gateway to take advantage of the proposed serverless rchitecture.
 
-### GET /api/meal/date/:date/flight/:flightCode
+### GET `/api/meal/date/:date/flight/:flightCode`
 Returns meal uplift plan for the flight flying on the particular date.
 
-### GET /api/waste/date/:date/flight/:flightCode
+### GET `/api/waste/date/:date/flight/:flightCode`
 Returns meal wastage data for the flight flying on the particular date.
 
-### GET /api/waste/days
+### GET `/api/waste/days`
 Returns food wastage per day in the current month so far.
-```
+
 Sample response:
+```
 {
   "dates": ["Jul 1", ...],
   "values: [1000, ...]
@@ -30,8 +31,9 @@ Sample response:
 
 ### GET /api/waste/months
 Returns food wastage per month in the current year so far.
-```
+
 Sample response:
+```
 {
   "dates": ["Jan", ...],
   "values: [1000, ...]
@@ -40,8 +42,9 @@ Sample response:
 
 ### GET /api/waste/food
 Returns food wastage in the current month so far by food type.
-```
+
 Sample response:
+```
 {
   "foodName": ["fish", ...],
   "values: [1000, ...]
@@ -50,16 +53,16 @@ Sample response:
 
 ## Folder structure
 
-### public/
+### `public/`
 Holds the frontend dashboard implemented using AngularJS.
 
-### app.js
+### `app.js`
 Entry point for the Node.js application, runs the web server and connects the app with the relevant routers.
 
-### src/routers
+### `src/routers`
 Maps API calls to meal details and wastage details to the corresponding controllers.
 
-### src/controllers
+### `src/controllers`
 Serves the API calls by providing JSON responses, some of which require fetching from SIA's provided APIs and others using the DeepLens data exported into local storage.
 
 ## Installation
